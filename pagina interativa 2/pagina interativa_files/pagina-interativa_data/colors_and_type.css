@@ -1,0 +1,242 @@
+/* ============================================================================
+   Pixie Club — Colors & Type
+   Estúdio autoral de direção criativa
+   ============================================================================ */
+
+@font-face {
+  font-family: "Inter Tight";
+  src: url("fonts/InterTight-VariableFont_wght.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter Tight";
+  src: url("fonts/InterTight-Italic-VariableFont_wght.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  /* ---- COLORS ----
+     Tokens follow the studio's reference palette:
+     [TONS PRIMÁRIOS] / [ESTRUTURAL] / [ACENTO PRINCIPAL]
+  */
+
+  /* Primários — the brand's two anchors */
+  --pc-ink:        #171F26; /* near-black blue, primary surface for dark mode */
+  --pc-paper:      #F2F2F2; /* off-white, primary surface for light mode */
+
+  /* Estrutural — neutrals used for structure, dividers, secondary type */
+  --pc-steel-700:  #2A3340; /* deep slate, ranks just above ink */
+  --pc-steel-500:  #656F73; /* mid steel — body type on paper, dividers */
+  --pc-steel-300:  #98A2A6; /* light steel — captions, disabled, hairlines */
+
+  /* Acento Principal — the only "color" in the system. Use sparingly. */
+  --pc-pink:       #FF4AB1;
+
+  /* ---- Derived: opacity tints for layering ---- */
+  --pc-ink-90:     rgba(23,31,38,.90);
+  --pc-ink-70:     rgba(23,31,38,.70);
+  --pc-ink-40:     rgba(23,31,38,.40);
+  --pc-ink-15:     rgba(23,31,38,.15);
+  --pc-ink-08:     rgba(23,31,38,.08);
+  --pc-paper-90:   rgba(242,242,242,.90);
+  --pc-paper-70:   rgba(242,242,242,.70);
+  --pc-paper-40:   rgba(242,242,242,.40);
+  --pc-paper-15:   rgba(242,242,242,.15);
+  --pc-paper-08:   rgba(242,242,242,.08);
+  --pc-pink-15:    rgba(255,74,177,.15);
+
+  /* ---- SEMANTIC: light surface (paper) ---- */
+  --pc-bg:         var(--pc-paper);
+  --pc-bg-elev:    #FFFFFF;
+  --pc-fg:         var(--pc-ink);
+  --pc-fg-2:       var(--pc-steel-500);
+  --pc-fg-3:       var(--pc-steel-300);
+  --pc-line:       var(--pc-ink-15);
+  --pc-line-soft:  var(--pc-ink-08);
+  --pc-accent:     var(--pc-pink);
+  --pc-accent-fg:  var(--pc-ink); /* always ink on top of pink */
+
+  /* ---- TYPE ----
+     Inter Tight is the system font. Used everything from display to micro.
+     Brand voice in identity uses MONO/UPPER for bracketed labels — see specimens.
+  */
+  --pc-font:       "Inter Tight", "Inter", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --pc-font-mono:  "Inter Tight", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  /* fluid type scale, optimized for editorial/long-form display */
+  --pc-fs-mega:    clamp(72px, 12vw, 200px);   /* hero/cover */
+  --pc-fs-display: clamp(48px, 7vw, 120px);    /* H1, big numbers */
+  --pc-fs-h1:      clamp(40px, 5vw, 72px);
+  --pc-fs-h2:      clamp(28px, 3.4vw, 48px);
+  --pc-fs-h3:      24px;
+  --pc-fs-h4:      18px;
+  --pc-fs-body:    16px;
+  --pc-fs-sm:      14px;
+  --pc-fs-xs:      12px;
+  --pc-fs-micro:   10px; /* bracket labels, tags */
+
+  --pc-lh-tight:   1.02;
+  --pc-lh-snug:    1.12;
+  --pc-lh-normal:  1.40;
+  --pc-lh-loose:   1.55;
+
+  --pc-tracking-display: -0.02em;
+  --pc-tracking-tight:   -0.01em;
+  --pc-tracking-normal:  0em;
+  --pc-tracking-wide:    0.06em;
+  --pc-tracking-mega:    0.18em; /* bracket labels */
+
+  /* ---- SPACE / RADII / SHADOWS ---- */
+  --pc-r-0: 0;
+  --pc-r-1: 2px;
+  --pc-r-2: 4px;
+  --pc-r-3: 8px;
+  --pc-r-pill: 999px;
+
+  --pc-s-1: 4px;
+  --pc-s-2: 8px;
+  --pc-s-3: 12px;
+  --pc-s-4: 16px;
+  --pc-s-5: 24px;
+  --pc-s-6: 32px;
+  --pc-s-7: 48px;
+  --pc-s-8: 64px;
+  --pc-s-9: 96px;
+
+  /* Shadows are restrained — Pixie's surfaces are mostly flat. */
+  --pc-shadow-1: 0 1px 0 var(--pc-ink-08);
+  --pc-shadow-2: 0 8px 24px -8px var(--pc-ink-15);
+  --pc-shadow-pop: 0 24px 60px -20px rgba(23,31,38,.35);
+
+  --pc-border:   1px solid var(--pc-line);
+  --pc-border-2: 1.5px solid var(--pc-fg);
+
+  /* motion */
+  --pc-ease:        cubic-bezier(.2,.7,.2,1);
+  --pc-ease-snap:   cubic-bezier(.6,.0,.1,1);
+  --pc-dur-fast:    140ms;
+  --pc-dur:         220ms;
+  --pc-dur-slow:    400ms;
+}
+
+/* ---- DARK SURFACE override (apply class .pc-dark on a wrapper) ---- */
+.pc-dark {
+  --pc-bg:         var(--pc-ink);
+  --pc-bg-elev:    var(--pc-steel-700);
+  --pc-fg:         var(--pc-paper);
+  --pc-fg-2:       var(--pc-steel-300);
+  --pc-fg-3:       var(--pc-steel-500);
+  --pc-line:       var(--pc-paper-15);
+  --pc-line-soft:  var(--pc-paper-08);
+  --pc-accent-fg:  var(--pc-ink);
+  color-scheme: dark;
+}
+
+/* ============================================================================
+   SEMANTIC TYPE CLASSES
+   Use these directly on elements; do not re-style with raw values.
+   ============================================================================ */
+
+.pc-mega, .pc-display, .pc-h1, .pc-h2, .pc-h3, .pc-h4 {
+  font-family: var(--pc-font);
+  color: var(--pc-fg);
+  margin: 0;
+  text-wrap: balance;
+}
+
+.pc-mega {
+  font-size: var(--pc-fs-mega);
+  font-weight: 600;
+  line-height: var(--pc-lh-tight);
+  letter-spacing: var(--pc-tracking-display);
+}
+.pc-display {
+  font-size: var(--pc-fs-display);
+  font-weight: 600;
+  line-height: var(--pc-lh-tight);
+  letter-spacing: var(--pc-tracking-display);
+}
+.pc-h1 {
+  font-size: var(--pc-fs-h1);
+  font-weight: 600;
+  line-height: var(--pc-lh-snug);
+  letter-spacing: var(--pc-tracking-tight);
+}
+.pc-h2 {
+  font-size: var(--pc-fs-h2);
+  font-weight: 600;
+  line-height: var(--pc-lh-snug);
+  letter-spacing: var(--pc-tracking-tight);
+}
+.pc-h3 {
+  font-size: var(--pc-fs-h3);
+  font-weight: 600;
+  line-height: var(--pc-lh-snug);
+}
+.pc-h4 {
+  font-size: var(--pc-fs-h4);
+  font-weight: 600;
+  line-height: var(--pc-lh-normal);
+}
+
+.pc-body {
+  font-family: var(--pc-font);
+  font-size: var(--pc-fs-body);
+  font-weight: 400;
+  line-height: var(--pc-lh-loose);
+  color: var(--pc-fg);
+  text-wrap: pretty;
+}
+.pc-body-sm {
+  font-family: var(--pc-font);
+  font-size: var(--pc-fs-sm);
+  font-weight: 400;
+  line-height: var(--pc-lh-normal);
+  color: var(--pc-fg-2);
+}
+
+/* The signature treatment: ALL CAPS · TIGHT WEIGHT · WIDE TRACKING · BRACKETS
+   This is how Pixie writes labels, captions, navigation, and section markers. */
+.pc-label {
+  font-family: var(--pc-font);
+  font-size: var(--pc-fs-xs);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: var(--pc-tracking-mega);
+  text-transform: uppercase;
+  color: var(--pc-fg);
+}
+.pc-label-sm {
+  font-family: var(--pc-font);
+  font-size: var(--pc-fs-micro);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: var(--pc-tracking-mega);
+  text-transform: uppercase;
+  color: var(--pc-fg-2);
+}
+/* helper: render a bracketed label inline. usage: <span class="pc-bracket">section</span> */
+.pc-bracket::before { content: "["; margin-right: .35em; }
+.pc-bracket::after  { content: "]"; margin-left: .35em; }
+
+/* italics get used as editorial accents — emphasize names of works/people */
+.pc-italic { font-style: italic; }
+
+/* ============================================================================
+   GLOBAL RESETS for previews / kits using this stylesheet
+   ============================================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+html, body {
+  background: var(--pc-bg);
+  color: var(--pc-fg);
+  font-family: var(--pc-font);
+  font-size: var(--pc-fs-body);
+  line-height: var(--pc-lh-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+::selection { background: var(--pc-pink); color: var(--pc-ink); }
